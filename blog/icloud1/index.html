@@ -1,0 +1,48 @@
+<h1>Activation Lock Bypass for A11 - A9 Devices</h1>
+<p style="color: #f00;"><strong>Disclaimer: </strong>I cannot be held liable for any damages, charges, or other
+    consequences resulting from the use of this guide.</p>
+<p>This guide is intended for research purposes only. Please use it solely on devices that you <strong>legally
+        own</strong> and have obtained through legal means.</p>
+<p>Follow these instructions closely, any fuck-ups might make you have to redo the entire process.</p>
+<p>Note that <strong>several services will not work.</strong> Cellular, iCloud sign-in (you can still sign into App
+    Store to get apps), passcode, ANYTHING Secure Enclave related, booting untethered, <strong>among other
+        things.</strong></p>
+<p>You will need:</p>
+<p><strong>- A computer, preferably on macOS. Linux should work too.</strong></p>
+<p><strong>- A reliable/OEM Lightning cable.</strong></p>
+<p><strong>- The locked iDevice in question</strong></p>
+<p><strong>- Some sanity, just in case</strong></p>
+<p>Without further ado, let's get started!</p>
+<p><strong>1. </strong>You probably noticed that I didn't specify an iOS version. This doesn't matter, you're gonna need
+    to restore your device anyways.</p>
+<p>Freshly restore your device (use iTunes, Finder, or look up how to), power it on, but DO NOT connect to Wi-Fi or try
+    to complete setup, as going to the
+    "iPhone Locked To Owner" screen fucks with some values that we'll need.</p>
+<p><strong>2. </strong>Clone this git repo, cd into it using this command:</p>
+<p><code>git clone https://github.com/kitty915/palera1n-mod/ && cd ./palera1n-mod/</code></p>
+<p><strong>LINUX USERS ONLY: </strong>You may need to run the following commands (before running the software) in a new
+    terminal (KEEP IT OPEN!):</p>
+<p><code>sudo systemctl stop usbmuxd && sudo usbmuxd -p -f</code></p>
+<p><strong>3. </strong>Now let's actually get started. We'll need to jailbreak with palera1n first to prepare the files
+    (run these commands in the folder we CD'ed to earlier):</p>
+<p><code>./palera1n.sh --tweaks [iOS version here, replace this with what's on your device e.g. 15.8]</code>
+</p>
+<p>Let the script run and follow any screen prompt if any. When it finishes you should be booted into iOS again. If for
+    some reason you end up in recovery mode, try running the command again and it should boot you into iOS.</p>
+<p>If everything was succesful and you booted into iOS, we are going to start the bypass process. Type the following
+    command in the terminal:</p>
+<p><code>./palera1n.sh --bypass <iOS version, same as before></code></p>
+<p>Let the process finish and your device should be in recovery mode.</p>
+<p>Once in recovery mode, we are already done with the bypass, just run this command to boot:</p>
+<p><code>./palera1n.sh --tweaks <iOS version, same as before></code></p>
+<p>Proceed as normal, skip Wi-Fi setup, and you should be able to jailbreak with palera1n using the Tips app if wanted.
+</p>
+<h1>You're done! Now what?</h1>
+<p>In case that the JB breaks and you need to restore it, do the following:</p>
+<p><code>./palera1n.sh --restorerootfs <iOS version></code></p>
+<p><code>./palera1n.sh clean</code></p>
+<p><code>./palera1n.sh --tweaks <iOS version></code></p>
+<p><code>./palera1n.sh --bypass <iOS version></code></p>
+<p><code>./palera1n.sh --tweaks <iOS version></code></p>
+<p>And you should be booted back in with a clean JB, once again!</p>
+<p>Credits: <a href="https://github.com/kitty915" target="_blank">kitty915</a></p>

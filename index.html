@@ -1,0 +1,40 @@
+<!doctype html>
+<head>
+    <link rel="stylesheet" href="./ASSets/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>The blog</title>
+</head>
+
+<body>
+    <div id="nav" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
+        <span><span id="docn">docs.meower.xyz</span> · <a href="https://meower.xyz" id="ok">Back</a><a onclick="fuck();" id="ok2"
+                style="display: none;">Close</a></span><span class="right" id="tbclock">Can't get time :P</span>
+    </div>
+    <div id="content">
+        <p>Tutorials, documents, blogs, etc.</p>
+        <!--Usage: doc('path-to-html.html', 'Title of document, KEEP IT SHORT AS POSSIBLE')-->
+        <p>Pinned</p>
+        <button onclick="doc('blog/new/index.html', 'Welcome!');">Welcome to the docs! <span style="color: #bbb;">- Dec 27, 2023</span></button>
+        <p>Unpinned</p>
+        <button onclick="doc('blog/icloud1/index.html', 'iCloud Bypass');"><strong>TETHERED</strong> - iCloud bypass for A9 - A11 <span style="color: #bbb;">- Dec 27, 2023</span></button>
+        <!--End of buttons-->
+    </div>
+    <iframe id="reader2" style="width: 100%; height: auto; border: none;">Loading...</iframe>
+    <div id="reader" style="display: none; text-align: left !important;">Loading...</div>
+    <div id="jump" onclick="topFunction();">Jump to top</div>
+</body>
+<script src="./ASSets/core.js"></script>
+<script>
+    function resizeIframe() {
+        var screenHeight = window.innerHeight;
+        var adjustedHeight = screenHeight - 90;
+        document.getElementById('reader2').style.height = adjustedHeight + 'px';
+    }
+
+    window.addEventListener('resize', resizeIframe);
+
+    document.addEventListener('DOMContentLoaded', function () {
+        resizeIframe();
+    });
+</script>

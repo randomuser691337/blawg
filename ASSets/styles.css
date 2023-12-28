@@ -1,0 +1,198 @@
+/* Rewritten by https://randomuser691337.vercel.app, DO NOT LET BRYN COOK 😭 */
+:root {
+    /* Font size selector, changes sizes of links, text, etc. */
+    --fontsize: 18px;
+    /* Bigger font size */
+    --bigfontsize: 22px;
+    /* Small font */
+    --smfontsize: 14px;
+    /* Accent color for buttons and links on site */
+    --accent: #5555DD;
+}
+
+@font-face {
+    font-family: 'roboto';
+    /* URL to normal font, right now it's roboto, change SRC to change font but DO NOT change the font-family */
+    src: url('./rm.ttf');
+}
+
+@font-face {
+    font-family: 'robotob';
+    /* URL to bold font, right now it's roboto, change SRC to change font but DO NOT change the font-family */
+    src: url('./rb.ttf');
+}
+
+
+body {
+    background-color: #000;
+    text-align: center;
+    font-family: 'roboto', sans-serif;
+    font-size: var(--fontsize);
+}
+
+.bold {
+    font-family: 'robotob', sans-serif;
+}
+
+h1 {
+    color: var(--accent);
+    padding: 8px;
+    margin: 0px;
+}
+
+a {
+    color: var(--accent);
+    font-size: var(--fontsize);
+    transition: 0.02s;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #ccc;
+}
+
+a:active {
+    color: #999;
+}
+
+button {
+    background-color: var(--accent);
+    width: 80%;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: var(--fontsize);
+    border-radius: 8px;
+    transition: 0.02s;
+    font-family: 'roboto', sans-serif;
+    padding: 8px;
+    margin-bottom: 3px;
+    border: none;
+    color: #fff;
+    cursor: pointer !important;
+}
+
+button:hover {
+    opacity: 80%;
+}
+
+button:active {
+    opacity: 60%;
+}
+
+#jump {
+    position: fixed;
+    right: 6px;
+    bottom: 6px;
+    background-color: #1a1a1a;
+    padding: 6px;
+    border: 1px solid #2a2a2a;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.02s;
+    display: none;
+    border-radius: 8px;
+    animation: ok 1s;
+}
+
+#jump:hover {
+    background-color: #2a2a2a;
+    border: 1px solid #3a3a3a;
+}
+
+#jump:active {
+    background-color: #3a3a3a;
+    border: 1px solid #4a4a4a;
+}
+
+@keyframes ok {
+    0% {opacity: 0%;}
+    30% {opacity: 30%; padding: 80px;}
+    100% {opacity: 100%; padding: 8px;}
+}
+
+#nav {
+    position: sticky;
+    left: 6px;
+    right: 6px;
+    top: 6px;
+    padding: 9px;
+    border-radius: 14px;
+    background-color: #1a1a1a;
+    overflow: auto;
+    border: 1px solid #2a2a2a;
+    color: #fff;
+}
+
+#content,
+#reader {
+    position: absolute;
+    text-align: center;
+    margin-top: 8px;
+    left: 6px;
+    right: 6px;
+    overflow: auto !important;
+}
+
+#reader {
+    padding-bottom: 45px;
+}
+
+.big {
+    font-size: var(--bigfontsize);
+    color: var(--accent);
+}
+
+.sm {
+    font-size: var(--smfontsize);
+    color: var(--accent);
+}
+
+
+p {
+    font-size: var(--fontsize);
+    padding: 6px;
+    margin: 0px;
+    color: #fff;
+}
+
+img {
+    border: 1px solid #2a2a2a;
+    height: auto;
+    border-radius: 10px;
+    max-width: 83%;
+}
+
+.right {
+    margin-left: auto;
+    /* pushes "tbclock" to the right */
+}
+
+::-webkit-scrollbar-track {
+    background: #3a3a3a;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 7px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
