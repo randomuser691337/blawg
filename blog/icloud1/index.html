@@ -35,9 +35,14 @@
 <p>Let the process finish and your device should be in recovery mode.</p>
 <p>Once in recovery mode, we are already done with the bypass, just run this command to boot:</p>
 <p><code>./palera1n.sh --tweaks [iOS version, same as before]</code></p>
-<p>Proceed as normal, skip Wi-Fi setup, and you should be able to jailbreak with palera1n using the Tips app if wanted.
-</p>
+<p>DO NOT SET A PASSCODE OR SET UP TOUCH ID! This may end in constant crashes, and a setup crash loop, which would make you need to redo this whole process.</p>
+<p>Proceed as normal, skip Wi-Fi setup, and you should be able to jailbreak with palera1n using the Tips app if wanted.</p>
 <h1>You're done! Now what?</h1>
+<p><strong>Setting a Passcode Test (A9 devices only)</strong></p>
+<p>1. Complete the initial setup without setting a passcode.</p>
+<p>2. Navigate to Settings &rarr; Touch ID and Passcode, then set a passcode.</p>
+<p>If your device crashes or blackscreens and reboots to recovery, you won't be able to set a passcode. To recover, simply boot using the same command as before: <code>palra1n.sh --tweaks</code>.</p>
+<p>If it sets normally/completes without crashing, congrats! You can set a passcode and Touch ID!</p>
 <p>In case that the JB breaks and you need to restore it, do the following:</p>
 <p><code>./palera1n.sh --restorerootfs [iOS version]</code></p>
 <p><code>./palera1n.sh clean</code></p>
