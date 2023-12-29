@@ -8,16 +8,16 @@
 
 <body>
     <div id="nav" style="display: flex; justify-content: space-between; align-items: center; text-align: left;">
-        <span><span id="docn">Docs</span>  <a href="https://meower.xyz" id="ok">Back</a>  <a onclick="fuck();" id="ok2"
-                style="display: none;">Close</a></span><span class="right" id="tbclock">Can't get time :P</span>
+        <span><span id="docn">Docs</span> · <a href="https://meower.xyz" id="ok">Back</a> <a onclick="fuck();" id="ok2" style="display: none;">Close</a> <a onclick="doc('./menu.html', 'Menu');">Menu</a></span>
+        <span class="right" id="tbclock">Can't get time :P</span>
     </div>
     <div id="content">
         <p>Tutorials, documents, blogs, etc.</p>
         <!--Usage: doc('path-to-html.html', 'Title of document, KEEP IT SHORT AS POSSIBLE')-->
         <p>Pinned</p>
-        <button onclick="doc('blog/new/index.html', 'Welcome!');">Welcome to the docs! <span style="color: #bbb;">- Dec 27, 2023</span></button>
+        <button onclick="doc('blog/new/index.html', 'Welcome!');">Welcome to the docs! <span style="color: var(--d);">- Dec 27, 2023</span></button>
         <p>Unpinned</p>
-        <button onclick="doc('blog/icloud1/index.html', 'iCloud Bypass');"><strong>TETHERED</strong> - iCloud bypass for A9 - A11 <span style="color: #bbb;">- Dec 27, 2023</span></button>
+        <button onclick="doc('blog/icloud1/index.html', 'iCloud Bypass');"><strong>TETHERED</strong> - iCloud bypass for A9 - A11 <span style="color: var(--d);">- Dec 27, 2023</span></button>
         <!--End of buttons-->
     </div>
     <iframe id="reader2" style="width: 100%; height: auto; border: none;">Loading...</iframe>

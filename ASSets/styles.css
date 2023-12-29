@@ -7,7 +7,13 @@
     /* Small font */
     --smfontsize: 14px;
     /* Accent color for buttons and links on site */
-    --accent: #5555DD;
+    --accent: #4455EE;
+    /* It's giving webdesk */
+    --lightdark: #1a1a1a;
+    --lightdark2: #2a2a2a;
+    --lightdarkp: #000000;
+    --font: #fff;
+    --d: #ddd;
 }
 
 @font-face {
@@ -24,7 +30,7 @@
 
 
 body {
-    background-color: #000;
+    background-color: var(--lightdarkp);
     text-align: center;
     font-family: 'roboto', sans-serif;
     font-size: var(--fontsize);
@@ -43,7 +49,6 @@ h1 {
 a {
     color: var(--accent);
     font-size: var(--fontsize);
-    transition: 0.02s;
     cursor: pointer;
     text-decoration: underline;
 }
@@ -53,7 +58,7 @@ a:hover {
 }
 
 a:active {
-    color: #999;
+    color: #888;
 }
 
 button {
@@ -63,12 +68,11 @@ button {
     text-align: center;
     font-size: var(--fontsize);
     border-radius: 8px;
-    transition: 0.02s;
     font-family: 'roboto', sans-serif;
     padding: 8px;
     margin-bottom: 3px;
     border: none;
-    color: #fff;
+    color: var(--font);
     cursor: pointer !important;
 }
 
@@ -84,10 +88,10 @@ button:active {
     position: fixed;
     right: 6px;
     bottom: 6px;
-    background-color: #1a1a1a;
+    background-color: var(--lightdark);
     padding: 6px;
-    border: 1px solid #2a2a2a;
-    color: #fff;
+    border: 1px solid var(--lightdark2);
+    color: var(--font);
     cursor: pointer;
     transition: 0.02s;
     display: none;
@@ -96,7 +100,7 @@ button:active {
 }
 
 #jump:hover {
-    background-color: #2a2a2a;
+    background-color: var(--lightdark2);
     border: 1px solid #3a3a3a;
 }
 
@@ -106,9 +110,19 @@ button:active {
 }
 
 @keyframes ok {
-    0% {opacity: 0%;}
-    30% {opacity: 30%; padding: 80px;}
-    100% {opacity: 100%; padding: 8px;}
+    0% {
+        opacity: 0%;
+    }
+
+    30% {
+        opacity: 30%;
+        padding: 80px;
+    }
+
+    100% {
+        opacity: 100%;
+        padding: 8px;
+    }
 }
 
 #nav {
@@ -118,10 +132,10 @@ button:active {
     top: 6px;
     padding: 9px;
     border-radius: 14px;
-    background-color: #1a1a1a;
+    background-color: var(--lightdark);
     overflow: auto;
-    border: 1px solid #2a2a2a;
-    color: #fff;
+    border: 1px solid var(--lightdark2);
+    color: var(--font);
 }
 
 #content,
@@ -151,13 +165,13 @@ button:active {
 
 p {
     font-size: var(--fontsize);
-    padding: 6px;
+    padding: 4px;
     margin: 0px;
-    color: #fff;
+    color: var(--font);
 }
 
 img {
-    border: 1px solid #2a2a2a;
+    border: 1px solid var(--lightdark2);
     height: auto;
     border-radius: 10px;
     max-width: 83%;
@@ -183,7 +197,7 @@ img {
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #1a1a1a;
+    background: var(--lightdark);
 }
 
 /* Handle */
@@ -195,4 +209,45 @@ img {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #888;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: #555;
+}
+
+.color-button {
+    width: 20px;
+    height: 20px;
+    margin-right: 2px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#button1 {
+    background-color: #ee2222;
+}
+
+#button2 {
+    background-color: #ff7f00;
+}
+
+#button3 {
+    background-color: #ddcc00;
+}
+
+#button4 {
+    background-color: #22dd22;
+}
+
+#button5 {
+    background-color: #4455EE;
+}
+
+#button6 {
+    background-color: #4b009f;
+}
+
+#button7 {
+    background-color: #9400d3;
 }

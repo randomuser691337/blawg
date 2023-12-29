@@ -1,3 +1,97 @@
+// Function to open or create the IndexedDB database
+function openDatabase() {
+    return new Promise((resolve, reject) => {
+        const request = indexedDB.open('guideDB', 1);
+
+        request.onupgradeneeded = function (event) {
+            const db = event.target.result;
+            db.createObjectStore('variables', { keyPath: 'name' });
+        };
+
+        request.onsuccess = function (event) {
+            const db = event.target.result;
+            resolve(db);
+        };
+
+        request.onerror = function (event) {
+            reject(event.target.error);
+        };
+    });
+}
+
+// Function to write a variable to the database
+function writeVar(name, value) {
+    openDatabase().then(db => {
+        const transaction = db.transaction(['variables'], 'readwrite');
+        const objectStore = transaction.objectStore('variables');
+
+        const request = objectStore.put({ name, value });
+
+        request.onsuccess = function () {
+            console.log(`Variable ${name} written to the database.`);
+        };
+
+        request.onerror = function (event) {
+            console.error('Error writing variable to the database:', event.target.error);
+        };
+    }).catch(error => {
+        console.error('Error opening database:', error);
+    });
+}
+
+// Function to read a variable from the database
+function readVar(name) {
+    return new Promise((resolve, reject) => {
+        openDatabase().then(db => {
+            const transaction = db.transaction(['variables'], 'readonly');
+            const objectStore = transaction.objectStore('variables');
+
+            const request = objectStore.get(name);
+
+            request.onsuccess = function () {
+                const variable = request.result;
+                if (variable) {
+                    resolve(variable.value);
+                } else {
+                    reject(`Variable ${name} not found in the database.`);
+                }
+            };
+
+            request.onerror = function (event) {
+                reject(`Error reading variable from the database: ${event.target.error}`);
+            };
+        }).catch(error => {
+            reject(`Error opening database: ${error}`);
+        });
+    });
+}
+
+// Function to set CSS variable values
+function setCSSVariable(name, value) {
+    document.documentElement.style.setProperty(`--${name}`, value);
+}
+
+// Function to initialize the application
+function initializeApp() {
+    readVar('accent').then(accentValue => {
+        setCSSVariable('accent', accentValue);
+    }).catch(error => {
+        console.error(error);
+    });
+
+    // Restore lightdark variable from the database and set CSS variable
+    readVar('lightdark').then(lightdarkValue => {
+        if (lightdarkValue === "dark" || lightdarkValue === undefined || lightdarkValue === null) {
+            dark();
+        } else {
+            light();
+        }
+    }).catch(error => {
+        console.error(error);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initializeApp);
 let timego = false;
 function showTime() {
     const t = document.getElementById("tbclock");
@@ -44,7 +138,7 @@ function docold(url, name) {
 function fuck() {
     document.getElementById('ok2').style.display = "none";
     document.getElementById('ok').style.display = "inline";
-    document.getElementById('docn').textContent = 'Blog';
+    document.getElementById('docn').textContent = 'Docs';
     hideshow('reader', 'content');
     hideshow('reader2', 'content');
 }
@@ -86,4 +180,26 @@ function scrollFunction() {
 function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
+}
+
+function changeColor(color) {
+    document.documentElement.style.setProperty('--accent', color);
+    writeVar('accent', color);
+}
+function light() {
+    document.documentElement.style.setProperty('--lightdark', "#ffffff");
+    document.documentElement.style.setProperty('--lightdark2', "#efefef");
+    document.documentElement.style.setProperty('--lightdarkp', "#dfdfdf");
+    document.documentElement.style.setProperty('--font', "#000");
+    document.documentElement.style.setProperty('--d', "#666");
+    writeVar('lightdark', 'light');
+
+}
+function dark() {
+    document.documentElement.style.setProperty('--lightdark', "#1a1a1a");
+    document.documentElement.style.setProperty('--lightdark2', "#2a2a2a");
+    document.documentElement.style.setProperty('--lightdarkp', "#000000");
+    document.documentElement.style.setProperty('--font', "#ffffff");
+    document.documentElement.style.setProperty('--d', "#ddd");
+    writeVar('lightdark', 'dark');
 }
