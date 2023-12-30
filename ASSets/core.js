@@ -183,9 +183,9 @@ function changeColor(color) {
 function light() {
     document.documentElement.style.setProperty('--lightdark', "#ffffff");
     document.documentElement.style.setProperty('--lightdark2', "#efefef");
-    document.documentElement.style.setProperty('--lightdarkp', "#dfdfdf");
+    document.documentElement.style.setProperty('--lightdarkp', "#f3f3f3");
     document.documentElement.style.setProperty('--font', "#000");
-    document.documentElement.style.setProperty('--d', "#666");
+    document.documentElement.style.setProperty('--d', "#333");
     writeVar('lightdark', 'light');
 
 }
