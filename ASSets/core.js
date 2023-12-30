@@ -127,13 +127,8 @@ function doc(url, name) {
     document.getElementById('ok').style.display = "none";
     document.getElementById('ok2').style.display = "inline";
     document.getElementById('docn').textContent = name;
-}
-function docold(url, name) {
-    hideshow('content', 'reader2');
-    document.getElementById('reader2').src = url;
-    document.getElementById('ok').style.display = "none";
-    document.getElementById('ok2').style.display = "inline";
-    document.getElementById('docn').textContent = name;
+    hideshow('content', 'reader');
+    hideshow('reader2', 'reader');
 }
 function fuck() {
     document.getElementById('ok2').style.display = "none";
@@ -141,11 +136,10 @@ function fuck() {
     document.getElementById('docn').textContent = 'Docs';
     hideshow('reader', 'content');
     hideshow('reader2', 'content');
+    main('./blog/loading.html');
 }
 // Reader 2.0
 function main(path) {
-    hideshow('content', 'reader');
-    hideshow('reader2', 'reader');
     const divElement = document.getElementById('reader');
     // Pathreader won't read local files when running locally.
     // If you have any fixes for this, DM me on Discord: @randomuser691337
