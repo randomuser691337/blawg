@@ -101,12 +101,11 @@ button:active {
 
 #jump:hover {
     background-color: var(--lightdark2);
-    border: 1px solid #3a3a3a;
+    border: 1px solid var(--lightdark);
 }
 
 #jump:active {
-    background-color: #3a3a3a;
-    border: 1px solid #4a4a4a;
+    opacity: 65%;
 }
 
 @keyframes ok {
@@ -116,7 +115,7 @@ button:active {
 
     30% {
         opacity: 30%;
-        padding: 80px;
+        padding: 70px;
     }
 
     100% {
