@@ -121,18 +121,6 @@ function showTime2() {
 }
 
 showTime();
-
-const currentUrl = window.location.href;
-const urlParams = new URLSearchParams(currentUrl);
-const pathValue = urlParams.get('path');
-const nameValue = urlParams.get('name');
-
-if (pathValue !== null) {
-    doc(pathValue, nameValue);
-} else {
-    console.log('The "path" parameter is not present in the URL.');
-}
-
 function doc(url, name) {
     main(url);
     document.getElementById('ok').style.display = "none";
