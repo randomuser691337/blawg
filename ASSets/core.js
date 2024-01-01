@@ -122,26 +122,33 @@ function showTime2() {
 
 showTime();
 function doc(url, name) {
-    main(url);
+    // Load content using main
+    loadContent(url);
+
+    // Update elements and show/hide as needed
     document.getElementById('ok').style.display = "none";
     document.getElementById('ok2').style.display = "inline";
     document.getElementById('docn').textContent = name;
     hideshow('content', 'reader');
     hideshow('reader2', 'reader');
 }
+
 function fuck() {
+    // Update elements and show/hide as needed
     document.getElementById('ok2').style.display = "none";
     document.getElementById('ok').style.display = "inline";
     document.getElementById('docn').textContent = 'Docs';
     hideshow('reader', 'content');
     hideshow('reader2', 'content');
-    main('./blog/loading.html');
+
+    // Load default content
+    loadContent('./blog/loading.html');
 }
+
 // Reader 2.0
-function main(path) {
+function loadContent(path) {
     const divElement = document.getElementById('reader');
-    // Pathreader won't read local files when running locally.
-    // If you have any fixes for this, DM me on Discord: @randomuser691337
+
     fetch(path)
         .then(response => response.text())
         .then(data => {
