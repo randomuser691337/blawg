@@ -28,6 +28,13 @@
     src: url('./rb.ttf');
 }
 
+h1 {
+    font-family: 'robotob', sans-serif !important;
+}
+
+strong {
+    font-family: 'robotob', sans-serif !important;
+}
 
 body {
     background-color: var(--lightdarkp);
@@ -67,7 +74,7 @@ button {
     box-sizing: border-box;
     text-align: center;
     font-size: var(--fontsize);
-    border-radius: 8px;
+    border-radius: 12px;
     font-family: 'roboto', sans-serif;
     padding: 8px;
     margin-bottom: 3px;
@@ -129,7 +136,7 @@ button:active {
     left: 6px;
     right: 6px;
     top: 6px;
-    padding: 9px;
+    padding: 8px;
     border-radius: 14px;
     background-color: var(--lightdark);
     overflow: auto;
