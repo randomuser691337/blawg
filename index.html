@@ -39,4 +39,14 @@
     document.addEventListener('DOMContentLoaded', function () {
         resizeIframe();
     });
+    var currentUrl = window.location.href;
+    var urlParams = new URLSearchParams(currentUrl);
+    var pathValue = urlParams.get('path');
+    var nameValue = urlParams.get('name');
+    
+    if (pathValue !== null) {
+        doc(pathValue, nameValue);
+    } else {
+        console.log('The "path" parameter is not present in the URL.');
+    }
 </script>
